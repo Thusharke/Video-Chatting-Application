@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f3ca4af96f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">
+        <img class="logo" src="logo.png">
+        RedSmoke
+    </h1>
+    <div class="video-grid"></div>
+    <div class="chat-div hide">
+        <div class="chat-container">
+            <div class="head">
+                <h2 class="header">CHAT-ROOM</h2>
+                <button class="cross"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="chat"></ul>
+            <input type="text" id="msg-inp" placeholder="Enter message">
+        </div>
+    </div>
+    <div class="toolbar">
+        <button class="mute" onclick="mute()"><i class="icon fas fa-microphone-alt "></i></button>
+        <button class="vid" onclick="stopVideo()"><i class="icon fas fa-video "></i></button>
+        <button class="msg_icon"><i class="icon far fa-comments "></i></button>
+        <button class="end"><a href="/"><i class="icon fas fa-phone "></i></a></button>
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var ROOM_ID = "<%= ROOM_ID %>";
+    </script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
