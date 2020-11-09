@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)) ,url("https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.4)) ,url("homeBackground.jpeg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,7 +12,6 @@ body{
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-    display: none;
 }
 .logo{
     transform: translateY(8%);
