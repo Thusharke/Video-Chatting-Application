@@ -15,8 +15,8 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     //Creating a peer for us when the video and audio is available
     const peer = new Peer(undefined,{
-        host: 'localhost',
-        port: 3000,
+        host: '/',
+        port: 443,
         path: '/peerjs'
     });
 
