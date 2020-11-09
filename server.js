@@ -35,7 +35,7 @@ io.on("connection", (socket) =>{
     })
 })
 
-server.listen(3000,(err) =>{
+server.listen(process.env.PORT||3000,(err) =>{
     if(err){
         console.log("something went wrong");
     }
