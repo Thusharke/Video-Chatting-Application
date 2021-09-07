@@ -1,31 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
-    <script src="https://kit.fontawesome.com/f3ca4af96f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <title>Redsomke</title>
 </head>
-<body> 
-    <h1 class="title">
-        <img class="logo" src="logo.png">
-        RedSmoke
-    </h1>
-    <div class="create-div">
-        <button class="blue-btn create">
-            <i class="icon fas fa-plus-square fa-2x"></i>
-            <h2 class="text"><a href="/makeRoom">Create Room</a></h2>
-        </button>
-    </div>
-    <div class="join-div">
-        <button class="blue-btn join">
-            <i class="icon fas fa-sign-in-alt fa-2x"></i>
-            <h2 class="text small">Join Room</h2>
-        </button>
-    </div>
-    <script src="home.js"></script>
+
+<body>
+    <nav>
+        <img src="/logo.png" alt="logo">
+        <h1>Redsmoke</h1>
+    </nav>
+    <header>
+        <div class="header-img">
+            <img src="/videochat.svg" alt="">
+        </div>
+        <div class="header-buttons">
+            <div>
+                <h1><span class="txt-type" data-wait="3000"
+                        data-words='["Create Room for your meett", "Join Room with the respected linkk"]'></span>
+                </h1>
+            </div>
+            <button>
+                <i class="fas fa-plus"></i>
+                <span>Create Room</span>
+            </button>
+            <button>
+                <i class="fas fa-door-open"></i>
+                <span>Join Room</span></button>
+        </div>
+    </header>
+    <footer>
+        &copy; Copyrights reserved 2020 Thushar KE
+    </footer>
+
+    <script>
+        class TypeWriter {
+            constructor(txtElement, words, wait = 1000) {
+                this.txtElement = txtElement;
+                this.words = words;
+                this.txt = '';
+                this.wordIndex = 0;
+                this.wait = parseInt(wait, 100);
+                this.type();
+                this.isDeleting = false;
+            }
+
+            type() {
+                // Current index of word
+                const current = this.wordIndex % this.words.length;
+                // Get full text of current word
+                const fullTxt = this.words[current];
+
+                // Check if deleting
+                if (this.isDeleting) {
+                    // Remove char
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    // Add char
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                // Insert txt into element
+                this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+                // Initial Type Speed
+                let typeSpeed = 150;
+
+                if (this.isDeleting) {
+                    typeSpeed /= 2;
+                }
+
+                // If word is complete
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    // Make pause at end
+                    typeSpeed = this.wait;
+                    // Set delete to true
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    // Move to next word
+                    this.wordIndex++;
+                    // Pause before start typing
+                    typeSpeed = 500;
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+
+
+        function init() {
+            const txtElement = document.querySelector('.txt-type');
+            const words = JSON.parse(txtElement.getAttribute('data-words'));
+            const wait = txtElement.getAttribute('data-wait');
+            new TypeWriter(txtElement, words, wait);
+        }
+    </script>
 </body>
+
 </html>
