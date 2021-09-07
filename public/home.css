@@ -5,7 +5,9 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: #131b21;
+  color: whitesmoke;
 }
 
 nav {
@@ -39,15 +41,15 @@ header {
   height: 80vh;
   border-radius: 20px;
   width: 50%;
-  border: 2px solid white;
-  box-shadow: 10px 10px 10px 10px rgba(126, 121, 121, 0.1);
+  /* border: 2px solid white;
+  box-shadow: 10px 10px 10px 10px rgba(126, 121, 121, 0.1); */
   position: relative;
   animation-name: left-right;
   animation-duration: 1s;
 }
 
 .header-img img {
-  width: 70%;
+  width: 90%;
 }
 
 .header-buttons {
@@ -58,7 +60,7 @@ header {
   justify-content: center;
 }
 
-.header-buttons > button {
+.header-buttons > a {
   background-color: transparent;
   margin: 10px 0px;
   color: #8fcc66;
@@ -70,24 +72,26 @@ header {
   cursor: pointer;
   position: relative;
   animation: bottom-top 1s;
+  text-align: center;
+  text-decoration: none;
 }
 
-.header-buttons > button:hover {
+.header-buttons > a:hover {
   background: rgb(143, 204, 103);
   color: #fff;
 }
 
-.header-buttons > button > span {
+.header-buttons > a > span {
   font-weight: 600;
 }
 
-.header-buttons > button > i {
+.header-buttons > a > i {
   font-size: 20px;
 }
 
 footer {
   text-align: center;
-  color: #000;
+  color: whitesmoke;
 }
 
 div > h1 {
@@ -99,7 +103,7 @@ div > h1 {
 }
 
 .txt-type > .txt {
-  border-right: 0.1rem solid #000;
+  border-right: 0.1rem solid whitesmoke;
 }
 
 @keyframes left-right {
